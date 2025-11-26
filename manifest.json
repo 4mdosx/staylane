@@ -8,7 +8,8 @@
     "windows",
     "storage",
     "tabGroups",
-    "sidePanel"
+    "sidePanel",
+    "sessions"
   ],
   "host_permissions": [
     "<all_urls>"

@@ -9,6 +9,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 8px;
   padding: 12px;
   background: transparent;
   border-top: none;
@@ -41,6 +42,37 @@
 }
 
 .settings-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.reopen-btn {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  width: 36px;
+  height: 36px;
+}
+
+.reopen-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transform: scale(1.05);
+}
+
+.reopen-btn:active {
+  transform: scale(0.95);
+}
+
+.reopen-btn svg {
   width: 20px;
   height: 20px;
 }
