@@ -53,7 +53,7 @@ npm run build
 ```
 staylane/
 ├── src/
-│   ├── popup/          # 弹出窗口页面
+│   ├── sidepanel/      # 侧边栏面板页面
 │   │   ├── App.tsx
 │   │   ├── main.tsx
 │   │   └── index.html

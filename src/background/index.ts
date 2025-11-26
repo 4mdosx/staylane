@@ -1,6 +1,11 @@
 // Background service worker
 console.log('StayLane background service worker loaded')
 
+// 配置sidePanel行为：点击action图标时打开sidePanel
+chrome.sidePanel
+  .setPanelBehavior({ openPanelOnActionClick: true })
+  .catch((error) => console.error('设置sidePanel行为失败:', error))
+
 // 监听标签页更新
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab.url) {

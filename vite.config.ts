@@ -25,18 +25,6 @@ export default defineConfig({
       closeBundle() {
         const distDir = resolve(__dirname, 'dist')
 
-        // 处理 popup.html
-        const popupSrc = resolve(distDir, 'src', 'popup', 'index.html')
-        const popupDest = resolve(distDir, 'popup.html')
-        if (existsSync(popupSrc)) {
-          let content = readFileSync(popupSrc, 'utf-8')
-          // 修复所有绝对路径为相对路径
-          content = content.replace(/src="\/assets\//g, 'src="./assets/')
-          content = content.replace(/href="\/assets\//g, 'href="./assets/')
-          writeFileSync(popupDest, content)
-          rmSync(resolve(distDir, 'src', 'popup'), { recursive: true, force: true })
-        }
-
         // 处理 options.html
         const optionsSrc = resolve(distDir, 'src', 'options', 'index.html')
         const optionsDest = resolve(distDir, 'options.html')
@@ -47,6 +35,18 @@ export default defineConfig({
           content = content.replace(/href="\/assets\//g, 'href="./assets/')
           writeFileSync(optionsDest, content)
           rmSync(resolve(distDir, 'src', 'options'), { recursive: true, force: true })
+        }
+
+        // 处理 sidepanel.html
+        const sidepanelSrc = resolve(distDir, 'src', 'sidepanel', 'index.html')
+        const sidepanelDest = resolve(distDir, 'sidepanel.html')
+        if (existsSync(sidepanelSrc)) {
+          let content = readFileSync(sidepanelSrc, 'utf-8')
+          // 修复所有绝对路径为相对路径
+          content = content.replace(/src="\/assets\//g, 'src="./assets/')
+          content = content.replace(/href="\/assets\//g, 'href="./assets/')
+          writeFileSync(sidepanelDest, content)
+          rmSync(resolve(distDir, 'src', 'sidepanel'), { recursive: true, force: true })
         }
 
         // 清理空的 src 目录
@@ -62,8 +62,8 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        popup: resolve(__dirname, 'src/popup/index.html'),
         options: resolve(__dirname, 'src/options/index.html'),
+        sidepanel: resolve(__dirname, 'src/sidepanel/index.html'),
         background: resolve(__dirname, 'src/background/index.ts'),
       },
       output: {
