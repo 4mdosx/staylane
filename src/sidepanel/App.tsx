@@ -248,6 +248,10 @@ const App: React.FC = () => {
     }
   }
 
+  const openBookmarks = () => {
+    chrome.tabs.create({ url: 'chrome://bookmarks' })
+  }
+
   return (
     <div className="app">
       <div className="tabs-container">
@@ -342,12 +346,11 @@ const App: React.FC = () => {
       </div>
 
       <footer className="app-footer">
-        {hasClosedTabs && (
-          <button
-            className="reopen-btn"
-            onClick={reopenClosedTab}
-            title="重新打开已关闭的标签页"
-          >
+        <button
+          className="bookmarks-btn"
+          onClick={openBookmarks}
+          title="书签"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -359,18 +362,39 @@ const App: React.FC = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-            <path d="M21 3v5h-5" />
-            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-            <path d="M3 21v-5h5" />
+            <path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
           </svg>
         </button>
-        )}
-        <button
-          className="settings-btn"
-          onClick={() => chrome.runtime.openOptionsPage()}
-          title="设置"
-        >
+        <div className="footer-right">
+          {hasClosedTabs && (
+            <button
+              className="reopen-btn"
+              onClick={reopenClosedTab}
+              title="重新打开已关闭的标签页"
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+              <path d="M21 3v5h-5" />
+              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+              <path d="M3 21v-5h5" />
+            </svg>
+          </button>
+          )}
+          <button
+            className="settings-btn"
+            onClick={() => chrome.runtime.openOptionsPage()}
+            title="设置"
+          >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -387,6 +411,7 @@ const App: React.FC = () => {
             <circle cx="12" cy="12" r="3" />
           </svg>
         </button>
+        </div>
       </footer>
     </div>
   )

@@ -7,12 +7,19 @@
 
 .app-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
   padding: 12px;
   background: transparent;
   border-top: none;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
 }
 
 .settings-btn {
@@ -42,6 +49,37 @@
 }
 
 .settings-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bookmarks-btn {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  width: 36px;
+  height: 36px;
+}
+
+.bookmarks-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transform: scale(1.05);
+}
+
+.bookmarks-btn:active {
+  transform: scale(0.95);
+}
+
+.bookmarks-btn svg {
   width: 20px;
   height: 20px;
 }

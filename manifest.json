@@ -28,6 +28,15 @@
   "side_panel": {
     "default_path": "sidepanel.html"
   },
+  "commands": {
+    "toggle-side-panel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+X"
+      },
+      "description": "打开/关闭侧边栏"
+    }
+  },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
